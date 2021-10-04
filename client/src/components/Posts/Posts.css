@@ -1,0 +1,39 @@
+
+.post {
+    margin-left: 20px;
+}
+
+.heading {
+    text-shadow: 3px 3px 3px rgb(216, 207, 207);
+    color: rgba(114, 43, 228, 0.733);
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.post-card {
+    background-color: rgba(171, 128, 240, 0.733);
+    color: rgb(254, 255, 246);
+    box-shadow: 2px 4px 4px 2px rgb(216, 207, 207);
+    border-radius: 10px;
+    /* height: 200px; */
+}
+
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.message{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: cursive;
+    overflow: auto;
+    height: 110px;
+}
+
+.sign{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: monospace;
+}

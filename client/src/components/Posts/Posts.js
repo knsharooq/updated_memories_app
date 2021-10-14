@@ -10,8 +10,8 @@ export const Posts = ( { setEditId = ()=>{} } ) => {
                 <Col sm={12} className="text-center mb-4 heading">
                     <p>Memories Dashboard</p>
                 </Col>
-                {!postsList.length ? <Col sm={12} className="mt-3">Add some memories to be displayed here.</Col> :
-                     <Col sm={12}>
+                {!postsList.length ? <Col sm={12} className="mt-3">Displaying Profiles ...</Col> :
+                     <Col sm={12} className="posts-container px-3 py-4 mx-3">
                          <Row>
                     {
                         postsList.map((post)=>{

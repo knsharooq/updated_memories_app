@@ -54,17 +54,17 @@ export const AddOrEditForm = ( {editId, setEditId = () => {} } ) => {
     }
 
     return (
-        <Row className="d-flex justify-content-center form">
+        <Row className="d-flex justify-content-center form bg-white py-3">
             <Col sm={12} className="text-center"><h3>Add or Edit Memory</h3></Col>
-            <Col sm={10} className="mt-3">
+            <Col sm={12} className="mt-3">
                 <Label>Title:</Label>
                 <Input className="mt-1" placeholder="Enter Title" value={formData?.title || ""} onChange={(e)=>setFormData({...formData,title:e.target.value})}/>
             </Col>
-            <Col sm={10} className="mt-3">
+            <Col sm={12} className="mt-3">
                 <Label>Message:</Label>
                 <Input type="textarea" className="mt-1" placeholder="Enter Message" value={formData?.message || ""} onChange={(e)=>setFormData({...formData,message:e.target.value})} />
             </Col>
-            <Col sm={10} className="mt-3">
+            <Col sm={12} className="mt-3">
                 <Label>Author:</Label>
                 <Input className="mt-1" placeholder="Enter Your Name" value={formData?.creator || ""} onChange={(e)=>setFormData({...formData,creator:e.target.value})} />
             </Col>

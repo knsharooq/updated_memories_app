@@ -8,9 +8,30 @@ import {
 import { deletePost, likePost } from "../../../actions/posts";
 import { useDispatch } from "react-redux";
 import moment from "moment";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import { useState } from "react";
 
 export const PostCard = ({ post, setEditId = () => {} }) => {
   const dispatch = useDispatch();
+  const [ isModalOpen, setIsModalOpen ] = useState(false)
+  const onDeleteConfirm = () => {
+    dispatch(deletePost(post._id));
+    setIsModalOpen(!isModalOpen)
+  }
+  const getModal = () => {
+    return (
+      <Modal isOpen={isModalOpen} toggle={setIsModalOpen(!isModalOpen)}>
+      <ModalBody>
+        Are you sure you want to Delete ?
+      </ModalBody>
+      <ModalFooter>
+        <Button color="info" onClick={setIsModalOpen(!isModalOpen)}>Cancel</Button>{' '}
+        <Button color="danger" onClick={onDeleteConfirm()}>Delete</Button>
+      </ModalFooter>
+    </Modal>
+    )
+    
+  }
   return (
     <div className="mx-3 mb-5 post-card p-3 d-flex flex-column justify-content-between">
       <div className="mb-2">
@@ -37,10 +58,11 @@ export const PostCard = ({ post, setEditId = () => {} }) => {
             </button>
             <button
               className="bg-transparent border-0 icon"
-              onClick={() => dispatch(deletePost(post._id))}
+              onClick={() => setIsModalOpen(true)}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
+            {getModal()}
           </div>
         </div>
       </div>

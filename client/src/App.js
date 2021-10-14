@@ -11,8 +11,8 @@ const App = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(readPosts())
-    },[editId,dispatch])
-
+    },[dispatch])
+    
     return (
         <Container fluid className = "main-background p-0">
             <Row className="mx-0 pt-3">
@@ -21,7 +21,7 @@ const App = () =>{
                         <Col sm={8}>
                             <Posts setEditId={setEditId}/>
                         </Col>
-                        <Col sm={4} className="pt-4">
+                        <Col sm={4} className="pt-4 sticky-top">
                             <AddOrEditForm editId={editId} setEditId={setEditId}/>
                         </Col>
                     </Row>

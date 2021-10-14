@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import { PostCard } from './Post/Post';
 import './Posts.css';
 
-export const Posts = ( {postData} ) => {
+export const Posts = ( { setEditId = ()=>{} } ) => {
     const postsList = useSelector((state) => state.posts)
     return (
         <Row className="d-flex justify-content-center post">
@@ -13,16 +14,10 @@ export const Posts = ( {postData} ) => {
                      <Col sm={12}>
                          <Row>
                     {
-                        postsList.map((post,index)=>{
+                        postsList.map((post)=>{
                             return(
-                                <Col sm={4}>
-                                    <div key={post._id} className="mx-3 mb-5 post-card p-3 d-flex flex-column justify-content-between">
-                                        <div className="mb-2">
-                                            <p className="title mb-0">{post.title}</p>
-                                            <div className="message">{post.message}</div>
-                                        </div>
-                                        <p className="sign mb-0">Created by {post.creator}</p>
-                                    </div>
+                                <Col sm={4} key={post._id} >
+                                    <PostCard post={post} setEditId={setEditId}/>
                                 </Col>
                             )
                         })

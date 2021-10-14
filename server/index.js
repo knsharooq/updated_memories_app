@@ -2,14 +2,14 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import postRouter from './routes/posts.js';
+import postRoutes from './routes/posts.js';
 
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
-app.use('/posts', postRouter);
+app.use('/posts', postRoutes);
 
 const CONNECTION_URL = 'mongodb+srv://knsharooq:knsharooq123@cluster0.jjzh5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
